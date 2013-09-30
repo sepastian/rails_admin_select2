@@ -23,8 +23,11 @@ and include select2 assets into your `application.css` and `application.js` (see
 
 Then, render any association field using select2 like so:
 
-    rails_admin do
-      edit do
-        field :children, :select2
+    class Parent
+      include Mongoid::Document
+      rails_admin do
+        edit do
+          field :children, :select2
+        end
       end
     end
