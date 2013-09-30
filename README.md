@@ -5,6 +5,7 @@ Add support for select2 input fields to RailsAdmin.
 
 This is a pre-release, it has been tested with mongoid only, it has not been tested with ActiveRecord.
 
+Find the gem version on (Rubygems)[https://rubygems.org/gems/rails_admin_select2].
 
 Usage
 -----
