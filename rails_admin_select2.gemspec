@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_runtime_dependency 'rails_admin', '~> 0.5.0'
+  s.add_runtime_dependency 'rails_admin', '~> 0.6.0'
   s.add_runtime_dependency 'select2-rails'
 end
