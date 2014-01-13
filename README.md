@@ -18,11 +18,16 @@ Add `rails_admin_select2` and `select2-rails` to your Gemfile
 
 Include select2 assets into your `application.css` and `application.js` (see https://github.com/argerim/select2-rails):
 
-    # app/assets/stylesheets/application.css.scss
-    @import "select2";
+    # app/assets/stylesheets/rails_admin/custom/theming.scss
+    /*
+     *= require_self
+     *= require select2
+     *= require_tree .
+    */
 
-    # app/assets/javascripts/application.js
+    # app/assets/javascripts/rails_admin/custom/ui.js
     //= require select2
+    //= require_tree .
 
 Usage
 -----
