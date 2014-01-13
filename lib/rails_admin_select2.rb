@@ -54,14 +54,15 @@ module RailsAdmin
           register_instance_option(:tags) do
             tagging? ? [] : nil
           end
+
           register_instance_option(:partial) do
             tagging? ? :form_select2_tags : :form_select2
           end
           # If true, allow selecting multiple associated objects.
-          # 
+          #
           # This will be true, if the association macro is one of
           # :has_many, :has_and_belongs_to_many, or :embeds_many.
-          # 
+          #
           # Raise a RuntimeError if tagging? has been enabled.
           register_instance_option(:multiple?) do
             if tagging?
@@ -74,15 +75,15 @@ module RailsAdmin
           #
           # For instance, if the association to render is article.article_group,
           # the collection used for the select2 field will contain all ArticleGroups.
-          # 
+          #
           # If :tags have been supplied, a tagging field will be rendered
           # and no collection is required/will be assembled.
           register_instance_option(:collection) do
             return nil if tagging?
-            @relation.class_name.safe_constantize.all.map{ |object| [ object.name, object.id ] }
+            @relation.class_name.safe_constantize.all.map{ |object| [ object.title, object.id ] }
           end
           # For Mongoid, the method_name for referenced associations is <name>_id[s],
-          # e.g. children_ids or parent_id; for embedded documents it is <name> or 
+          # e.g. children_ids or parent_id; for embedded documents it is <name> or
           # <name>s, respectively.
           #
           # Return #{name} for embedded documents, #{name}_id for referenced documents;
@@ -95,11 +96,11 @@ module RailsAdmin
             m = embedded ? @relation.name.to_s.singularize : "#{@relation.name.to_s.singularize}_id"
             multiple? ? m.pluralize : m
           end
-          
+
           private
 
           # Return true, if this tagging should be enabled for this field.
-          # 
+          #
           # For tagging to be enabled, the type of the field must be
           # Mongoid::Fields::Standard and the type of the attribute
           # must be String.

@@ -1,5 +1,16 @@
 <%- input_id = "#{field.abstract_model.to_s.underscore}_#{field.method_name}" %>
-<%= form.select(field.method_name, field.collection, { :include_blank => true }, { :class => 'select2', :style => 'width:75%', :id => input_id, :multiple => field.multiple? }) %>
+
+<%= form.select(field.method_name,
+                field.collection,
+                { :include_blank => true },
+                { :class => 'select2',
+                  :id => input_id,
+                  :multiple => field.multiple?
+                }) %>
+
+
 <script type="text/javascript">
-  $(<%= input_id %>).select2();
+  $(<%= input_id %>).select2({
+    width: 500
+  });
 </script>

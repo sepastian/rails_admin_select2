@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = RailsAdminSelect2::VERSION
   s.authors     = ["Sebastian Gassner"]
   s.email       = ["sebastian.gassner@gmail.com"]
-#  s.homepage    = "TODO"
+  s.homepage    = "https://github.com/dieunb/rails_admin_select2"
   s.summary     = "Select2 for rails_admin"
   s.description = "A custom field providing select2 support for rails_admin."
 

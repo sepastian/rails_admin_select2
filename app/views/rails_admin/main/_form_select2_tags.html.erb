@@ -1,7 +1,14 @@
 <%- tags_value = field.value || '' %>
 <%- tags_predefined = "[%s]" % field.tags.map{ |t| "\"#{t.to_s}\"" }.join(',') %>
 <%- input_id = "#{field.abstract_model.to_s.underscore}_#{field.method_name}" %>
-<%= form.hidden_field(field.method_name, { :class => 'select2', :id => input_id, :style => 'width:75%', :value => tags_value }) %>
+
+<%= form.hidden_field(field.method_name,
+                      { :class => 'select2',
+                        :id => input_id,
+                        :style => 'width:75%',
+                        :value => tags_value
+                      }) %>
+
 <script type="text/javascript">
   $(<%= input_id %>).select2({ tags: <%= tags_predefined.html_safe %> });
 </script>
